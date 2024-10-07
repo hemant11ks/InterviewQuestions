@@ -1,0 +1,323 @@
+Important Questions
+
+
+S - Single Responsibility Principle (SRP): The single responsibility principle ensures that every class or module should be accountable and responsible for only one functionality. There should be one and only one reason for changing any class.
+O - Open Closed Principle (OCP): Every class is open for extension but closed for modification. Here, we are allowed to extend the entities behaviour by not modifying anything in the existing source code.
+L - Liskov Substitution Principle(LSP): LSP principle states that the objects can be replaced by the subtype instances without affecting the correctness of the program.
+I - Interface Segregation Principle (ISP): The ISP principle states that we can use as many interfaces specific to the client’s requirements instead of creating only one general interface. Clients should not be forced to implement the functionalities that they do not require.
+D - Dependency Inversion Principle: Here, the high-level modules should not be dependent on the lower level modules or concrete implementations. Instead, they should be dependent on the abstractions.
+
+String: Immutable and thread-safe.
+StringBuffer: Mutable and thread-safe.
+StringBuilder: Mutable and not thread-safe, but faster than StringBuffer.
+
+Inversion of control is a pattern used to decouple the dependencies between layers and components in the system. 
+The Dependency-Injection (DI) pattern is an example of an IoC pattern that helps in removing dependencies in the code.
+
+
+Threading: <thread> class is used for threading
+Note: In java, for threading we need to implement runnable interface.
+
+t.join() -> use to wait until thread complete executing before the main exit.
+
+
+Final can be used to stop the overidding a method again and again.
+
+
+Java Execution:   .java (Java source) -> Compiler -> .class (Bytecode) ->     JIT Compiler -> Native Code
+                                     AT COMPILE TIME                             AT RUNTIME
+
+
+Shallow copy and Deep copy:
+
+Shallow copy:    
+        obj1-------> int a = 4;
+        obj2------->
+                            | Create copy
+
+Deep copy: obj3--------> a = 4
+
+
+In shallow if we change the value in obj1 then it will reflect to obj2 but not same behavior for obj3 because its a copy.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+#include <iostream>  
+using namespace std;
+class ClassA {
+		public:
+		virtual void show() {
+			cout << "The show() function in base class invoked..." << endl;
+		}
+	};
+	class ClassB :public ClassA {
+	public:
+		void show() 	{
+			cout << "The show() function in derived class invoked...";
+		}
+	};
+	int main() {
+		ClassA* a;   
+		ClassB b;
+		a = &b;
+		a->show();      
+	}
+
+
+OUTPUT: The show() function in derived class invoked... 
+
+If we dont use virtual it will give base class invoked.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+A stream is a sequence of elements that can be processed in a pipeline fashion. 
+You can think of it as a flow of data that can be transformed, filtered, and aggregated to produce a result.
+-------------------------------------------------------------------------------------------------------------------------------
+How do you remove a column from a database?
+You can remove a column by using the DROP keyword:
+
+ALTER TABLE classics DROP pages;
+-------------------------------------------------------------------------------------------------------------------------------
+
+Following are various languages present in DBMS:
+
+DDL(Data Definition Language):  It contains commands which are required to define the database.
+E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc.
+DML(Data Manipulation Language): It contains commands which are required to manipulate the data present in the database.
+E.g., SELECT, UPDATE, INSERT, DELETE, etc.
+DCL(Data Control Language):  It contains commands which are required to deal with the user permissions and controls of the database system.
+E.g., GRANT and REVOKE.
+TCL(Transaction Control Language):  It contains commands which are required to deal with the transaction of the database.
+E.g., COMMIT, ROLLBACK, and SAVEPOINT.
+
+--------------------------------------------------------------------------------------------------------------------------------
+DELETE command: this command is needed to delete rows from a table based on the condition provided by the WHERE clause.
+
+TRUNCATE command: this command is needed to remove complete data from a table in a database. It is like a DELETE command which has no WHERE clause.
+--------------------------------------------------------------------------------------------------------------------------------
+
+Different types of keys in a database:
+
+Primary Key (PK): A unique identifier for each record in a table, used to distinguish each row from others.
+Foreign Key (FK): A field in a table that refers to the primary key of another table, establishing a relationship between the two tables.
+Unique Key (UK): A key that ensures each value in a column or set of columns is unique, but can be null.
+Composite Key (CK): A combination of two or more columns that uniquely identify each record in a table.
+Alternate Key (AK): A unique key that is not the primary key, but can be used to uniquely identify each record in a table.
+Index Key: A data structure that improves the speed of data retrieval by providing a quick way to locate specific data.
+Candidate Key: A column or set of columns that can uniquely identify each record in a table, but is not necessarily the primary key.
+Surrogate Key: An artificial primary key, usually a sequential identifier, used instead of a natural primary key.
+These types of keys help maintain data consistency, uniqueness, and relationships between tables in a database.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Angular:
+
+-> Every Angular app consists of a file named angular.json,This file will contain all the configurations of the app.
+   While building the app, the builder looks at this file to find the entry point of the application.
+
+-> The main.ts file creates a browser environment for the application to run, and, along with this,
+   it also calls a function called bootstrapModule, which bootstraps the application. 
+   These two steps are performed in the following order inside the main.ts file.
+
+->  Each component is declared with three properties:
+
+Selector - used for accessing the component
+Template/TemplateURL - contains HTML of the component
+StylesURL - contains component-specific stylesheets
+
+-> Here angular expression is used to display message property of component.
+-> Angular expressions quite beneficial is the use of pipes. Angular uses pipes(called filters in AngularJS),
+   which can be used to format data before displaying it. Let’s see one predefined pipe in action: 
+
+  import { Component, OnInit } from '@angular/core';
+      @Component({
+        selector: 'app-new',
+        template: `
+            <h4>{{message | lowercase}}</h4>
+        `,
+        styleUrls: ['./new.component.css']
+      })
+      export class NewComponent implements OnInit {
+        message:string = "HELLO WORLD";
+        constructor() { }
+
+        ngOnInit() {
+        }
+
+      }
+
+-> Single Page Applications (SPA):  are web based applications that only need to be loaded once, 
+   with new functionality consisting of only minor changes to the user interface.
+
+
+-> There are two ways to create a template in an Angular component:
+
+1.Inline Template
+@Component({
+    selector: "app-greet",
+    template: `<div>
+        <h1> Hello {{name}} how are you ? </h1>
+        <h2> Welcome to interviewbit ! </h2>
+    </div>`
+})
+
+2.Linked Template
+@Component({
+    selector: "app-greet",
+    templateUrl: "./component.html"
+})
+
+----------------------------------------------------------------------------------------------------------------------------
+In Angular, directives are special classes that can modify the structure or behavior of elements in your application. There are three main types of directives:
+
+Component Directives
+Attribute Directives
+Structural Directives
+
+1. Component Directives
+These are the most common type of directives. A component directive is essentially a directive with a template. Components are used to create reusable UI elements.
+
+Example:
+
+TypeScript
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-hello-world',
+  template: `<h1>Hello, World!</h1>`
+})
+export class HelloWorldComponent {}
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Creating a reusable header component that can be used across different parts of an application.
+
+2. Attribute Directives
+Attribute directives change the appearance or behavior of an element, component, or another directive.
+
+Example: NgClass
+
+HTML
+
+<div [ngClass]="{'active': isActive}">Toggle Class</div>
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Dynamically adding or removing CSS classes based on component state.
+
+Example: NgStyle
+
+HTML
+
+<div [ngStyle]="{'color': isSpecial ? 'red' : 'blue'}">Styled Text</div>
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Applying conditional styles to elements.
+
+3. Structural Directives
+Structural directives change the DOM layout by adding and removing DOM elements.
+
+Example: NgIf
+
+HTML
+
+<div *ngIf="isVisible">This is conditionally visible</div>
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Displaying or hiding elements based on a condition.
+
+Example: NgFor
+
+HTML
+
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Rendering a list of items dynamically.
+
+Example: NgSwitch
+
+HTML
+
+<div [ngSwitch]="viewMode">
+  <ng-template [ngSwitchCase]="'map'">Map View</ng-template>
+  <ng-template [ngSwitchCase]="'list'">List View</ng-template>
+  <ng-template ngSwitchDefault>Default View</ng-template>
+</div>
+AI-generated code. Review and use carefully. More info on FAQ.
+Use Case: Displaying different templates based on a condition.
+
+These directives help in creating dynamic and interactive web applications by manipulating the DOM elements efficiently
+
+
+------------------------------------------------------------------------------------------------------------------------
+Component: Manages a part of the UI.
+Module: Groups related components and services.
+TypeScript File: Contains the logic and types for the application.
+
+-----------------------------------------------------------------------------------------------------------------------
+Data binding is one of the most significant and effective elements for creating communication between the DOM and the component.
+
+Their are four types of binding in angular:
+
+Interpolation: {{ expression }} - Binds data from the component to the view.
+Property Binding: [property]="expression" - Binds values to element properties.
+Event Binding: (event)="method()" - Binds events to component methods.
+Two-Way Binding: [(ngModel)]="property" - Synchronizes data between the component and the view.
+
+------------------------------------------------------------------------------------------------------------------------
+The @Input decorator allows any data to be sent from parent to child.
+
+The @Output decorator allows any data to be sent from child to parent.
+------------------------------------------------------------------------------------------------------------------------
+
+MVVM Architecture:
+
+1. Model: contains the structure of an entity. In simple terms it contains data of an object.
+2. View: is the visual layer of the application. It displays the data contained inside the Model.
+   In angular terms, this will be the HTML template of a component.
+3. ViewModel: is an abstract layer of the application. A viewmodel handles the logic of the application. 
+   It manages the data of a model and displays it in the view.
+
+View and ViewModel are connected with data-binding (two-way data-binding in this case). 
+Any change in the view, the viewmodel takes a note and changes the appropriate data inside the model
+
+-------------------------------------------------------------------------------------------------------------------------
+What are lifecycle hooks in Angular? Explain a few lifecycle hooks.
+
+1.ngOnChanges( ) This hook/method is called before ngOnInit and whenever one or more input properties of the component change.
+This method/hook receives a SimpleChanges object which contains the previous and current values of the property.
+2.ngOnInit( ) This hook gets called once, after the ngOnChanges hook.
+It initializes the component and sets the input properties of the component.
+3.ngDoCheck( ) It gets called after ngOnChanges and ngOnInit and is used to detect and act on changes that cannot be detected by Angular.
+We can implement our change detection algorithm in this hook. ngAfterContentInit( ) It gets called after the first ngDoCheck hook. This hook responds after the content gets projected inside the component.
+4.ngAfterContentChecked( ) It gets called after ngAfterContentInit and every subsequent ngDoCheck. It responds after the projected content is checked.
+5.ngAfterViewInit( ) It responds after a component's view, or a child component's view is initialized.
+6.ngAfterViewChecked( ) It gets called after ngAfterViewInit, and it responds after the component's view, or the child component's view is checked.
+7.ngOnDestroy( ) It gets called just before Angular destroys the component. This hook can be used to clean up the code and detach event handlers.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+RxJS is an acronym that stands for Reactive Extensions for JavaScript.
+It is used to enable the use of observables in our JavaScript project, allowing us to do reactive programming. 
+RxJS is utilized in many popular frameworks, including Angular since it allows us to compose our asynchronous or callback-based code into a sequence of operations executed on a data stream that releases values from a publisher to a subscriber.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
